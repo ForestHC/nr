@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "nr"
+version = "0.1.0"
+description = ""
+license = "MIT"
+authors = ["tanto <hc@tanto.dev>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.95.2"
+flake8 = "^6.0.0"
+uvicorn = {extras = ["standard"], version = "^0.22.0"}
+pydantic = "^1.10.8"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
