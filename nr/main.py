@@ -2,6 +2,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from .routers import root, new_releases
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("Server received the first request!")

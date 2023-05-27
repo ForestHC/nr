@@ -1,14 +1,17 @@
 from pydantic import BaseModel, Field
 from datetime import datetime
 
+
 class Note(BaseModel):
     title: str
     message: str
+
 
 class Account(BaseModel):
     _type: Field(str, alias="type")
     _id: Field(str, alias="id")
     name: str
+
 
 class ReleaseHook(BaseModel):
     provider: str

@@ -6,9 +6,11 @@ from ..channel.message import Block, Message
 from ..schemas.releasehook import ReleaseHook
 from ..utils.new_releases import verify_signature
 
+
 router = APIRouter(
     prefix="/nr",
 )
+
 
 @router.post("/hooks", status_code=status.HTTP_201_CREATED)
 def hook(

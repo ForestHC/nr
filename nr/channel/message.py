@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Block:
     def __init__(self, block_type: str, value: str):
         self._block_type = block_type
@@ -10,6 +11,7 @@ class Block:
             "type": self._block_type,
             "value": self._value
         }
+
 
 class Message:
     def __init__(self, blocks: List[Block], options: List[str] | None = None):

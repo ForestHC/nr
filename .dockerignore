@@ -2,6 +2,7 @@
 .vscode
 .idea
 .editorconfig
+.flake8
 .github
 .gitignore
 Dockerfile

@@ -15,7 +15,11 @@ class ChannelOpenApiClient():
         self._group_id = settings.channel_group_id
 
     def send_teamchat_message(self, message: Message):
-        url = f"{self._url}/open/{self._version}/groups/{self._group_id}/messages?botName=NewReleases.io"
+        url = f"{self._url}" \
+            + f"/open/{self._version}" \
+            + f"/groups/{self._group_id}" \
+            + "/messages?botName=NewReleases.io"
+
         requests.post(
             url=url,
             headers=self._headers,
