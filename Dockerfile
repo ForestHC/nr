@@ -22,4 +22,4 @@ RUN poetry install
 
 EXPOSE 8000
 
-CMD ["poetry", "run", "uvicorn", "nr.main:app"]
+CMD ["poetry", "run", "uvicorn", "nr.main:app", "--host", "0.0.0.0"]
