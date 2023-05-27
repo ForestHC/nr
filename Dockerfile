@@ -1,4 +1,9 @@
-FROM python:3.10
+FROM python:3.10-slim
+
+RUN apt-get update \
+  && apt-get install -qy curl \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 # Configure Poetry
 ENV POETRY_VERSION=1.5.0
@@ -18,7 +23,7 @@ WORKDIR /app
 
 COPY . /app
 
-RUN poetry install
+RUN poetry install --without dev
 
 EXPOSE 8000
 

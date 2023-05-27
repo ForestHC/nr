@@ -1,0 +1,7 @@
+.git
+.vscode
+.idea
+.editorconfig
+.github
+.gitignore
+Dockerfile
