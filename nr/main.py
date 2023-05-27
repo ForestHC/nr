@@ -7,7 +7,7 @@ from .routers import root, new_releases
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("start server...")
+    print("Server received the first request!")
 
     app.start_time=datetime.utcnow()
     app.version=git_info.get_tag_or_branch()
@@ -16,7 +16,7 @@ async def lifespan(app: FastAPI):
 
     yield
 
-    print("shutdown...")
+    print("Server received SIGTERM signal.")
 
 app = FastAPI(
     lifespan=lifespan
