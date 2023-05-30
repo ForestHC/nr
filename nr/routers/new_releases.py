@@ -13,7 +13,7 @@ router = APIRouter(
 )
 
 
-@router.post("/hooks", status_code=status.HTTP_201_CREATED)
+@router.post("/hook", status_code=status.HTTP_201_CREATED)
 def hook(
     x_newreleases_signature: Annotated[str, Header()],
     x_newreleases_timestamp: Annotated[str, Header()],
