@@ -1,5 +1,6 @@
 from ..configs.config import settings
 from .message import Message
+from requests import Response
 
 import requests
 
@@ -20,8 +21,10 @@ class ChannelOpenApiClient():
             + f"/groups/{self._group_id}" \
             + "/messages?botName=NewReleases.io"
 
-        requests.post(
+        response: Response = requests.post(
             url=url,
             headers=self._headers,
             json=message.to_dict()
         )
+
+        print(response.json())
