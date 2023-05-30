@@ -23,7 +23,8 @@ def hook(
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
 
     release_time = parser.parse(release.time) \
-        .astimezone(tz=ZoneInfo('Asia/Seoul'))
+        .astimezone(tz=ZoneInfo('Asia/Seoul')) \
+        .strftime('%Y-%m-%d %H:%M:%S %Z')
 
     blocks: List[Block] = []
     blocks.append(Block(
