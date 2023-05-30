@@ -1,9 +1,4 @@
-FROM python:3.10-slim as builder
-
-RUN apt-get update \
-  && apt-get install -qy curl \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+FROM python:3.10-slim AS builder
 
 ENV POETRY_VERSION=1.5.0
 ENV POETRY_HOME=/opt/poetry
@@ -25,6 +20,11 @@ RUN poetry config virtualenvs.create false \
   && poetry export --format requirements.txt --output requirements.txt
 
 FROM python:3.10-slim
+
+RUN apt-get update \
+  && apt-get install -qy curl \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
