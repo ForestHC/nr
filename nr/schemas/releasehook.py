@@ -1,5 +1,4 @@
-from pydantic import BaseModel, Field
-from datetime import datetime
+from pydantic import BaseModel
 from typing import Optional, List
 
 
@@ -9,12 +8,13 @@ class Note(BaseModel):
 
 
 class Account(BaseModel):
-    _type: Field(str, alias="type")
-    _id: Field(str, alias="id")
+    type:str
+    id: str
     name: str
 
+
 class Tag(BaseModel):
-    _id: Field(str, alias="id")
+    id: str
     name: str
 
 
@@ -22,7 +22,7 @@ class ReleaseHook(BaseModel):
     provider: str
     project: str
     version: str
-    time: datetime
+    time: str
     cve: Optional[List[str]]
     is_prerelease: Optional[bool]
     is_updated: Optional[bool]
