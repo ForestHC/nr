@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     channel_open_api_version: StrictStr = "v5"
     channel_open_api_access_key: StrictStr = ""
     channel_open_api_access_secret: StrictStr = ""
-    channel_group_id: StrictStr = "96844"
+    channel_group_id: StrictStr = ""
     newreleases_webhook_verify_key: StrictStr = ""
 
 
