@@ -8,7 +8,7 @@ import hashlib
 
 def verify_signature(signature: str, timestamp: str, release: ReleaseHook) -> bool:
     secret: str = settings.newreleases_webhook_verify_key
-    message: str = f"{timestamp}.{''.join(release.json(skip_defaults=True).split())}"
+    message: str = f"{timestamp}.{''.join(release.json(exclude_unset=True, exclude_none=True).split())}"
     _hmac: HMAC = hmac.new(
         key=secret.encode(),
         msg=message.encode(),
