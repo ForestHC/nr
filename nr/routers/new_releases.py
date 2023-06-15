@@ -2,6 +2,7 @@ from fastapi import APIRouter, Header, HTTPException, Response, status
 from typing import Annotated, List
 from zoneinfo import ZoneInfo
 from dateutil import parser
+from ..configs.config import settings
 from ..channel.client import ChannelOpenApiClient
 from ..channel.message import Block, Message
 from ..schemas.releasehook import ReleaseHook
@@ -19,7 +20,8 @@ def hook(
     x_newreleases_timestamp: Annotated[str, Header()],
     release: ReleaseHook
 ) -> Response:
-    if not verify_signature(x_newreleases_signature, x_newreleases_timestamp, release):
+    if settings.newreleases_webhook_verify and \
+       not verify_signature(x_newreleases_signature, x_newreleases_timestamp, release):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
 
     release_time = parser.parse(release.time) \

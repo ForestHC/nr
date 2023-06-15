@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     channel_open_api_access_secret: StrictStr = ""
     channel_group_id: StrictStr = ""
     newreleases_webhook_verify_key: StrictStr = ""
+    newreleases_webhook_verify: bool = True
 
 
 settings = Settings()

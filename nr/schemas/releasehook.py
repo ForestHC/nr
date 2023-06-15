@@ -8,7 +8,7 @@ class Note(BaseModel):
 
 
 class Account(BaseModel):
-    type:str
+    type: str
     id: str
     name: str
 
