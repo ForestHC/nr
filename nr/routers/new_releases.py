@@ -40,6 +40,6 @@ def hook(
     message = Message(blocks=blocks)
 
     client = ChannelOpenApiClient()
-    client.send_teamchat_message(message)
+    client.send_group_message(message)
 
     return {"success": True}
